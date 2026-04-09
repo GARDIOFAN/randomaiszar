@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BuszMenetrend – Utazz egyszerűen</title>
+    <style>
+      :root {
+        --brand-yellow: #ffcf00;
+        --brand-blue: #06397b;
+        --brand-light: #f4f7fb;
+        --text-dark: #1d2736;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--text-dark);
+        background: #ffffff;
+      }
+
+      .topbar {
+        background: var(--brand-blue);
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.9rem 1rem;
+        border-bottom: 3px solid var(--brand-yellow);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 700;
+        color: var(--brand-blue);
+      }
+
+      .logo-mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        background: linear-gradient(140deg, var(--brand-yellow), #ffd94d);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--brand-blue);
+        font-weight: 600;
+      }
+
+      .hero {
+        background: linear-gradient(120deg, var(--brand-blue), #0b4e9e);
+        color: white;
+        padding: 3rem 1rem;
+      }
+
+      .hero-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .search-card {
+        background: #fff;
+        color: var(--text-dark);
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      }
+
+      .search-card h2 {
+        margin-top: 0;
+        color: var(--brand-blue);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+
+      input,
+      button,
+      select {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #c7d2e4;
+        font-size: 0.95rem;
+      }
+
+      button {
+        border: none;
+        background: var(--brand-yellow);
+        color: #1e2b3e;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .section {
+        max-width: 1100px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(180px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        background: var(--brand-light);
+        padding: 1rem;
+        border-radius: 12px;
+        border: 1px solid #dde6f5;
+      }
+
+      .timetable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 0.8rem;
+      }
+
+      .timetable th,
+      .timetable td {
+        border: 1px solid #d9e2ef;
+        padding: 0.65rem;
+        text-align: left;
+      }
+
+      .timetable th {
+        background: #eaf0fb;
+        color: var(--brand-blue);
+      }
+
+      footer {
+        margin-top: 3rem;
+        padding: 1.3rem;
+        text-align: center;
+        background: #061f43;
+        color: #d8e3f5;
+      }
+
+      @media (max-width: 820px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .form-grid,
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <span>Ügyfélszolgálat: +36 1 999 0000</span>
+      <span>HU | EN</span>
+    </div>
+
+    <header class="navbar">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span>BuszMenetrend</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#">Menetrendek</a>
+        <a href="#">Jegyvásárlás</a>
+        <a href="#">Kedvezmények</a>
+        <a href="#">Hírek</a>
+        <a href="#">Kapcsolat</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1>Távolsági és regionális buszjáratok egy helyen</h1>
+          <p>
+            Keresd meg gyorsan az indulásokat, nézd meg a csatlakozásokat, és
+            válts jegyet online pár kattintással.
+          </p>
+        </div>
+
+        <div class="search-card">
+          <h2>Járatkereső</h2>
+          <form class="form-grid">
+            <input type="text" placeholder="Honnan" value="Budapest" />
+            <input type="text" placeholder="Hová" value="Győr" />
+            <input type="date" />
+            <select>
+              <option>Indulás szerint</option>
+              <option>Érkezés szerint</option>
+            </select>
+            <button type="button" style="grid-column: 1 / -1">Keresés</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Gyors információk</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Forgalmi hírek</h3>
+          <p>Változás a 7:20-as Budapest–Tatabánya járatnál.</p>
+        </article>
+        <article class="card">
+          <h3>Bérletek</h3>
+          <p>Országbérlet és vármegyebérlet online is elérhető.</p>
+        </article>
+        <article class="card">
+          <h3>Utastájékoztatás</h3>
+          <p>Valós idejű késésadatok a főbb vonalakon.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Minta indulások (Budapest, Népliget)</h2>
+      <table class="timetable">
+        <thead>
+          <tr>
+            <th>Vonal</th>
+            <th>Úticél</th>
+            <th>Indulás</th>
+            <th>Kocsiállás</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1134</td>
+            <td>Győr</td>
+            <td>10:15</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>1178</td>
+            <td>Kecskemét</td>
+            <td>10:30</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>1241</td>
+            <td>Székesfehérvár</td>
+            <td>10:45</td>
+            <td>11</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      © 2026 BuszMenetrend – Ez egy demó oldal, amely a hazai buszos portálok
+      stílusát idézi.
+    </footer>
+  </body>
+</html>
